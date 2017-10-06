@@ -1162,8 +1162,12 @@ done:
   if (!src) goto done; // exception was thrown
   dst = (LPCWSTR) (*env)->GetStringChars(env, jdst, NULL);
   if (!dst) goto done; // exception was thrown
-  if (!MoveFile(src, dst)) {
+ /* if (!MoveFile(src, dst)) {
     throw_ioe(env, GetLastError());
+  } */
+  if(!MoveFileEx(src,dst,MOVE_REPLACE_EXISTING)) 
+  {
+  	throw_ioe(env,getLastError());
   }
 
 done:

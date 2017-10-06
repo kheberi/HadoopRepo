@@ -46,7 +46,7 @@ import com.google.common.annotations.VisibleForTesting;
 @InterfaceAudience.Private
 public class KMSACLs implements Runnable, KeyACLs {
   private static final Logger LOG = LoggerFactory.getLogger(KMSACLs.class);
-
+  
   private static final String UNAUTHORIZED_MSG_WITH_KEY =
       "User:%s not allowed to do '%s' on '%s'";
 
